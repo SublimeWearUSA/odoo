@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_project_crm_stage,access_project_crm_stage,model_project_project_crm_stage,,1,1,1,1
-access_project_inter_stage,access_project_inter_stage,model_project_project_inter_stage,,1,1,1,1
-access_project_sales_stage,access_project_sales_stage,model_sale_order,,1,1,1,1
