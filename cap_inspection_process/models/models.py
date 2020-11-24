@@ -64,7 +64,7 @@ class SaleOrder(models.Model):
             invoice_vals_list.append(invoice_vals)
 
 
-        _logger.warning(str(self.env.user.has_group('base.group_user')))
+        # _logger.warning(str(self.env.user.has_group('base.group_user')))
 
         if not invoice_vals_list:
             if self.env.user.has_group('base.group_user'):
