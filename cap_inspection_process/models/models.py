@@ -56,15 +56,15 @@ class SaleOrder(models.Model):
                         pending_section = None
                     invoice_vals['invoice_line_ids'].append((0, 0, line._prepare_invoice_line()))
 
-            if not invoice_vals['invoice_line_ids'] and self.env.user.has_group(1):
+            if not invoice_vals['invoice_line_ids'] and self.env.user.has_group('base.group_user'):
                 raise UserError(_('There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
 
             invoice_vals_list.append(invoice_vals)
 
 
-        _logger.warning(str(self.env.user.has_group(1)))
+        _logger.warning(str(self.env.user.has_group('base.group_user')))
 
-        if not invoice_vals_list and self.env.user.has_group(1):
+        if not invoice_vals_list and self.env.user.has_group('base.group_user'):
             raise UserError(_(
                 'There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
 
