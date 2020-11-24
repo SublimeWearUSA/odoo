@@ -56,18 +56,22 @@ class SaleOrder(models.Model):
                         pending_section = None
                     invoice_vals['invoice_line_ids'].append((0, 0, line._prepare_invoice_line()))
 
-            if not invoice_vals['invoice_line_ids'] and self.env.user.has_group('base.group_user'):
-                raise UserError(_('There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
-
+            if not invoice_vals['invoice_line_ids']:
+                if self.env.user.has_group('base.group_user'):
+                    raise UserError(_('There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
+                else:
+                    _logger.warning('No invoiceable line error skipped.')
             invoice_vals_list.append(invoice_vals)
 
 
         _logger.warning(str(self.env.user.has_group('base.group_user')))
 
-        if not invoice_vals_list and self.env.user.has_group('base.group_user'):
-            raise UserError(_(
-                'There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
-
+        if not invoice_vals_list:
+            if self.env.user.has_group('base.group_user'):
+                raise UserError(_(
+                    'There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
+            else:
+                _logger.warning('No invoiceable line error skipped.')
         # 2) Manage 'grouped' parameter: group by (partner_id, currency_id).
         if not grouped:
             new_invoice_vals_list = []
