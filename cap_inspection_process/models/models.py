@@ -62,7 +62,8 @@ class SaleOrder(models.Model):
             invoice_vals_list.append(invoice_vals)
 
 
-        
+        _logger.warning(str(self.env.user.has_group(1)))
+
         if not invoice_vals_list and self.env.user.has_group(1):
             raise UserError(_(
                 'There is no invoiceable line. If a product has a Delivered quantities invoicing policy, please make sure that a quantity has been delivered.'))
