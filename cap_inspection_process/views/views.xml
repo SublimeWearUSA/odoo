@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="cap_inspection_process.window_open_so" model="ir.ui.view">
+    <field name="name">in_pr.window.window_open_so</field>
+    <field name="model">in_pr.window</field>
+    <field name="arch" type="xml">
+      <form create="false">
+        <sheet string="Window" name="studio_sheet_656a0c">
+          <group col="4" name="studio_group_3609b9">
+            <field name="name"/>
+            <field name="x_nb_windows"/>
+            <field name="location" options="{'no_create':true}" domain="[['sale_order_id','=',sale_order_id]]"/>
+            <field name="x_transom"/>
+            <newline/>
+            <field name="picture_ids" colspan="4">
+              <tree string="Window Picture">
+                <field name="id" attrs="{}" invisible="1"/>
+                <field name="picture" options="{&quot;size&quot;:[150,300]}" widget="image"/>
+              </tree>
+              <form>
+              <sheet string="Window Picture" name="studio_sheet_8e09e1">
+                <group col="4" name="studio_group_38ef9e">
+                  <field name="picture" options="{&quot;size&quot;:[400,800]}" widget="image"/>
+                  <field name="window_id" attrs="{}" invisible="1"/>
+                  <separator/>
+                </group>
+              </sheet>
+              </form>
+            </field>
+            <newline/>
+            <newline/>
+            <field name="notes" colspan="4"/>
+            <newline/>
+            <field name="height"/>
+            <field name="width"/>
+            <newline/>
+            <field name="service_ids" colspan="4" widget="many2many_checkboxes" domain="[['type','=','window']]"/>
+            <newline/>
+            <field name="sale_order_id" context="[['sale_order_id','=',sale_order_id]]" attrs="{}" invisible="1"/>
+            <separator/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="cap_inspection_process.metal_open_so" model="ir.ui.view">
+    <field name="name">in_pr.window.metal_open_so</field>
+    <field name="model">in_pr.metal</field>
+    <field name="arch" type="xml">
+      <form create="false">
+        <sheet string="Metal" name="studio_sheet_656a0c">
+          <group col="4" name="studio_group_3609b9">
+            <field name="name"/>
+            <field name="location" options="{'no_create':true}" domain="[['sale_order_id','=',sale_order_id]]"/>
+            <newline/>
+            <field name="picture_ids" colspan="4">
+              <tree string="Metal Picture">
+                <field name="id" attrs="{}" invisible="1"/>
+                <field name="picture" options="{&quot;size&quot;:[150,300]}" widget="image"/>
+              </tree>
+              <form>
+              <sheet string="Metal Picture" name="studio_sheet_8e09e1">
+                <group col="4" name="studio_group_38ef9e">
+                  <field name="picture" options="{&quot;size&quot;:[400,800]}" widget="image"/>
+                  <field name="metal_id" attrs="{}" invisible="1"/>
+                  <separator/>
+                </group>
+              </sheet>
+              </form>
+            </field>
+            <newline/>
+            <newline/>
+            <field name="notes" colspan="4"/>
+            <newline/>
+            <field name="height"/>
+            <field name="width"/>
+            <newline/>
+            <field name="service_ids" colspan="4" widget="many2many_checkboxes" domain="[['type','=','window']]"/>
+            <newline/>
+            <field name="sale_order_id" context="[['sale_order_id','=',sale_order_id]]" attrs="{}" invisible="1"/>
+            <separator/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>
