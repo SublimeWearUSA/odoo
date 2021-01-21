@@ -24,5 +24,5 @@ class WebsiteSaleEXT(WebsiteSale):
         # OrderBy will be parsed in orm and so no direct sql injection
         # id is added to be sure that order is a unique sort key
         order = post.get('order', 'name asc') or 'website_sequence ASC'
-        _logger.warning("AAAAAAAAAAAAAAAA\n" + str(order))
-        return 'is_published desc, %s, id desc' % order
+      #   return 'is_published desc, %s, id desc' % order
+        return order
