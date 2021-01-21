@@ -11,7 +11,6 @@ from odoo.addons.payment.controllers.portal import PaymentProcessing
 from odoo.addons.website.controllers.main import QueryURL
 from odoo.exceptions import ValidationError
 from odoo.addons.website.controllers.main import Website
-from odoo.addons.sale.controllers.product_configurator import ProductConfiguratorController
 from odoo.addons.website_form.controllers.main import WebsiteForm
 from odoo.addons.website_sale.controllers.main import WebsiteSale
 from odoo.osv import expression

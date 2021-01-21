@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Downpayment on Website",
+    'name': "Sort products",
 
     'summary': """
-        Charges only 25 percent of a product's price on the website.
+        Sort products by name
         """,
 
     'author': "Captivea",
